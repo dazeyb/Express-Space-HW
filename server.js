@@ -1,12 +1,22 @@
-// DEPENDENCIES
-const express = require('express');
-const app = express();
+/* ===== External Modules ===== */
+// bring in OUTSIDE code
+const express = require("express");
+// const methodOverride = require("method-override"); This is for posting or deleting on server
 
+
+/* ===== Internal Modules ===== */
+// bring in code from another file
 const db = require("./models");
+const controllers = require("./controllers");
 
 
+/* ===== Instanced Modules ===== */
+const app = express(); // the express module requires us to create an object from the express function
 
 
+/* ===== App Configuration ===== */
+// set the view engine to ejs
+app.set("view engine", "ejs");
 
 // run `npm install` to install dependencies in package.json  DONE
 
@@ -17,6 +27,11 @@ const db = require("./models");
 // * MAIN GOAL:
 // * User should be able to click on a mission’s name on the index page, and be taken to that mission’s show page to view the data
 //
+
+// We'll need a for loop to write out the mission names, pulling from the array (bond hw).
+// This will make a button
+
+
 // * Bonus/Hungry for More: add images to the data and have them display (google how)
 // * Bonus/Hungry for More: add static css to style the pages (google how)
 
@@ -25,8 +40,9 @@ const db = require("./models");
 // views folder has not been created    DONE
 // views/missions folder has not been created   DONE
 
-// PORT
+/* ===== Configuration Variables / PORT ===== */
 const PORT = 3000;
+
 
 // DATA - move this to a file called marsMissions.js inside of a models folder    DONE
 // remember to export (module.exports)
@@ -80,7 +96,25 @@ const marsMissions = [
 
 
 
-// LISTENER
+
+module.exports = app;
+
+
+// This is a test to see if it shows on the server
+app.get("/", function(req, res){ 
+  res.send("emoji");
+});
+
+
+
+// This is going to use the file in the directory into the index.js, to grab the variable exportedShowsController
+app.use("/rooturl", controllers.exportedShowsController);
+
+
+
+// LISTENER,  Put at the very end
+/* ===== Server Bind ==== */
+// Bind our server to a port
 app.listen(PORT, function() {
   console.log('Missions to Mars running on port: ', PORT);
 });
@@ -88,7 +122,3 @@ app.listen(PORT, function() {
 
 
 module.exports = app;
-
-app.get("/", function(req, res){
-  res.send("emoji");
-});
