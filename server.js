@@ -2,7 +2,12 @@
 const express = require('express');
 const app = express();
 
-// run `npm install` to install dependencies in package.json
+
+
+
+
+
+// run `npm install` to install dependencies in package.json  DONE
 
 // * Your mission is to complete the app
 // * The app will need routes for index and show
@@ -15,14 +20,14 @@ const app = express();
 // * Bonus/Hungry for More: add static css to style the pages (google how)
 
 // NOTES:
-// ejs has not been installed
-// views folder has not been created
-// views/missions folder has not been created
+// ejs has not been installed   DONE
+// views folder has not been created    DONE
+// views/missions folder has not been created   DONE
 
 // PORT
 const port = 3000;
 
-// DATA - move this to a file called marsMissions.js inside of a models folder
+// DATA - move this to a file called marsMissions.js inside of a models folder    DONE
 // remember to export (module.exports)
 // remember to require it in the server
 const marsMissions = [
