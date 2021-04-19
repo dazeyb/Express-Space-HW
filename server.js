@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 
+const db = require("./models");
 
 
 
@@ -25,7 +26,7 @@ const app = express();
 // views/missions folder has not been created   DONE
 
 // PORT
-const port = 3000;
+const PORT = 3000;
 
 // DATA - move this to a file called marsMissions.js inside of a models folder    DONE
 // remember to export (module.exports)
@@ -80,8 +81,14 @@ const marsMissions = [
 
 
 // LISTENER
-app.listen(port, function() {
-  console.log('Missions to Mars running on port: ', port);
-})
+app.listen(PORT, function() {
+  console.log('Missions to Mars running on port: ', PORT);
+});
+
+
 
 module.exports = app;
+
+app.get("/", function(req, res){
+  res.send("emoji");
+});
