@@ -18,11 +18,16 @@ const app = express(); // the express module requires us to create an object fro
 // set the view engine to ejs
 app.set("view engine", "ejs");
 
+
+
+
+app.use(express.urlencoded({ extended: true }));
+
 // run `npm install` to install dependencies in package.json  DONE
 
 // * Your mission is to complete the app
-// * The app will need routes for index and show
-// * The app will need views for index and show
+// * The app will need routes for index and show DONE
+// * The app will need views for index and show DONE
 //
 // * MAIN GOAL:
 // * User should be able to click on a mission’s name on the index page, and be taken to that mission’s show page to view the data
@@ -101,7 +106,7 @@ module.exports = app;
 
 
 // This is a test to see if it shows on the server
-app.get("/", function(req, res){ 
+app.get("/", function(req, res) { 
   res.send("emoji");
 });
 
