@@ -113,7 +113,7 @@ app.get("/", function(req, res) {
 
 
 // This is going to use the file in the directory into the index.js, to grab the variable exportedShowsController
-app.use("/rooturl", controllers.exportedShowsController);
+app.use("/missions", controllers.exportedShowsController);
 
 
 

@@ -15,7 +15,7 @@
     <ul>
         <% allMissions.forEach((mission, index) => { %>
         <li>
-            <a href="../controllers/show.js/<%= allMissions.name %>"> <%= allMissions.name %> </a>
+            <a href="/missions/<%= allMissions[index].name %>"> <%= allMissions[index].name %> </a>
         </li>
         <% }); %>
     </ul>
